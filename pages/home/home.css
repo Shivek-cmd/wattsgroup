@@ -65,7 +65,7 @@
 .hero-visual {
   position: absolute;
   top: 50%;
-  right: -8%;
+  right: 4%;
   transform: translateY(-50%) rotate(15deg);
   width: 640px;
   height: 640px;
@@ -169,7 +169,7 @@
   cursor: pointer;
 }
 
-/* Counter-rotate each item to keep it upright (matches parent rotation) */
+/* Counter-rotate each item to stay upright (exactly cancels parent + tilt) */
 .hero-orbit-track--1 .hero-orbit-item {
   animation: orbitCounter1 40s linear infinite;
 }
@@ -183,43 +183,43 @@
 }
 
 @keyframes orbitCounter1 {
-  0% { transform: rotate(0deg) rotate(-15deg); }
-  100% { transform: rotate(-360deg) rotate(-15deg); }
+  from { transform: rotate(-15deg); }
+  to { transform: rotate(calc(-360deg - 15deg)); }
 }
 
 @keyframes orbitCounter2 {
-  0% { transform: rotate(0deg) rotate(-15deg); }
-  100% { transform: rotate(-360deg) rotate(-15deg); }
+  from { transform: rotate(-15deg); }
+  to { transform: rotate(calc(-360deg - 15deg)); }
 }
 
 @keyframes orbitCounter3 {
-  0% { transform: rotate(0deg) rotate(-15deg); }
-  100% { transform: rotate(360deg) rotate(-15deg); }
+  from { transform: rotate(-15deg); }
+  to { transform: rotate(calc(360deg - 15deg)); }
 }
 
 .hero-orbit-icon {
   width: 56px;
   height: 56px;
-  background: #fff;
+  background: var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 30px rgba(218, 65, 80, 0.06);
-  border: 2px solid rgba(218, 65, 80, 0.15);
+  box-shadow: 0 4px 20px rgba(218, 65, 80, 0.2), 0 0 30px rgba(218, 65, 80, 0.1);
+  border: 2px solid rgba(218, 65, 80, 0.3);
   transition: all 0.3s ease;
 }
 
 .hero-orbit-item:hover .hero-orbit-icon {
-  box-shadow: 0 4px 24px rgba(218, 65, 80, 0.25);
-  border-color: var(--color-primary);
+  box-shadow: 0 4px 24px rgba(218, 65, 80, 0.4);
+  border-color: #fff;
   transform: scale(1.1);
 }
 
 .hero-orbit-icon svg {
   width: 24px;
   height: 24px;
-  stroke: var(--color-primary);
+  stroke: #fff;
 }
 
 .hero-orbit-label {
@@ -239,7 +239,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(218, 65, 80, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(218, 65, 80, 0.15) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
@@ -250,7 +250,7 @@
   .hero-visual {
     width: 480px;
     height: 480px;
-    right: -12%;
+    right: 0%;
   }
   .hero-orbit-ring--1 { width: 200px; height: 200px; }
   .hero-orbit-ring--2 { width: 320px; height: 320px; }
