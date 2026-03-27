@@ -181,7 +181,7 @@ p {
 }
 
 .page-hero--bg p {
-  color: rgba(255,255,255,0.95);
+  color: #fff;
   font-weight: 400;
 }
 
@@ -563,6 +563,8 @@ body.page-grid::after {
 .marquee-wrapper {
   overflow: hidden;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .marquee-wrapper::before,

@@ -308,9 +308,25 @@
 }
 
 .related-card-image {
+  position: relative;
   aspect-ratio: 16/9;
   background: var(--color-bg-secondary);
   overflow: hidden;
+}
+
+.related-card-category {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  z-index: 2;
+  text-transform: uppercase;
 }
 
 .related-card-image img {
@@ -320,18 +336,19 @@
 }
 
 .related-card-body {
-  padding: var(--space-5);
+  padding: var(--space-6) var(--space-6) var(--space-8);
 }
 
 .related-card-meta {
   font-size: var(--text-xs);
   color: var(--color-text-subtle);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .related-card-body h3 {
   font-size: var(--text-base);
   line-height: 1.4;
+  margin-bottom: var(--space-2);
 }
 
 .related-card-body h3 a {

@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/global/header-styles.css">
   <link rel="stylesheet" href="/global/footer-styles.css">
   <link rel="stylesheet" href="/pages/portfolio/portfolio.css">
+  <link rel="stylesheet" href="/pages/home/home.css">
   <script>(function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,152 +68,105 @@
       </div>
     </section>
 
-    <!-- Filter + Grid -->
-    <section class="section" aria-labelledby="companies-heading">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <span class="section-label">Companies</span>
-          <h2 id="companies-heading">Ventures Shaping Tomorrow</h2>
+    <!-- Portfolio Scroll Cards (Pinned Horizontal Scroll) -->
+    <section class="portfolio-scroll-section" aria-labelledby="companies-heading">
+      <div class="portfolio-scroll-sticky">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-label">Companies</span>
+            <h2 id="companies-heading">Ventures Shaping Tomorrow</h2>
+          </div>
         </div>
-
-        <div class="portfolio-filter reveal">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ai">AI</button>
-          <button class="filter-btn" data-filter="technology">Technology</button>
-          <button class="filter-btn" data-filter="real-estate">Real Estate</button>
-          <button class="filter-btn" data-filter="immigration">Immigration</button>
-          <button class="filter-btn" data-filter="education">Education</button>
-          <button class="filter-btn" data-filter="entertainment">Entertainment</button>
-          <button class="filter-btn" data-filter="community">Community</button>
-        </div>
-
-        <div class="portfolio-grid blur-hover-group">
-          <!-- Aifyze -->
-          <div class="portfolio-card portfolio-item reveal delay-1" data-category="ai">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Ai</div>
-              <span class="badge">AI</span>
+        <div class="portfolio-scroll-wrapper">
+          <div class="portfolio-scroll-track" id="portfolioScrollTrack">
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=500&fit=crop&q=80" alt="Aifyze — AI Consulting & Automation" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">AI</span>
+                <span class="portfolio-scroll-card-date">Founded 2022</span>
+              </div>
             </div>
             <h3>Aifyze</h3>
-            <p class="portfolio-card-tagline">AI Consulting & Automation Solutions</p>
-            <p>Aifyze delivers custom AI consulting and automation solutions that transform how businesses operate. From intelligent chatbots to full-stack workflow automation, we help companies harness the power of artificial intelligence to compete at enterprise scale.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">AI Consulting</span>
-              <span class="badge">Automation</span>
-              <span class="badge">Chatbots</span>
-            </div>
-          </div>
-
-          <!-- Abroadiz -->
-          <div class="portfolio-card portfolio-item reveal delay-2" data-category="education">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Ab</div>
-              <span class="badge">Education</span>
+            <p>AI consulting and automation solutions transforming how businesses operate and compete.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=500&fit=crop&q=80" alt="Abroadiz — Study Abroad Consultancy" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Education</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
             </div>
             <h3>Abroadiz</h3>
-            <p class="portfolio-card-tagline">Study Abroad & Immigration Consultancy</p>
-            <p>Abroadiz connects aspiring students with world-class universities across Canada, Australia, UK, and beyond. Our expert consultants guide every step — from university selection and application to visa processing and pre-departure preparation.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">Study Abroad</span>
-              <span class="badge">University Admissions</span>
-              <span class="badge">Visa Guidance</span>
-            </div>
-          </div>
-
-          <!-- Applyio -->
-          <div class="portfolio-card portfolio-item reveal delay-1" data-category="technology">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Ap</div>
-              <span class="badge">Technology</span>
+            <p>Study abroad and immigration consultancy connecting students with global opportunities.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=500&fit=crop&q=80" alt="Applyio — Application Management Platform" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Technology</span>
+                <span class="portfolio-scroll-card-date">Founded 2023</span>
+              </div>
             </div>
             <h3>Applyio</h3>
-            <p class="portfolio-card-tagline">Application Management Platform</p>
-            <p>Applyio streamlines the application management process for education and immigration firms. Our platform automates document collection, tracking, and processing — reducing administrative overhead and improving applicant experience.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">SaaS</span>
-              <span class="badge">EdTech</span>
-              <span class="badge">Process Automation</span>
-            </div>
-          </div>
-
-          <!-- Fun-A-Boo -->
-          <div class="portfolio-card portfolio-item reveal delay-2" data-category="entertainment">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Fb</div>
-              <span class="badge">Entertainment</span>
+            <p>Streamlined application management platform for education and immigration processes.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=500&fit=crop&q=80" alt="Fun-A-Boo — Kids Entertainment" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Entertainment</span>
+                <span class="portfolio-scroll-card-date">Founded 2023</span>
+              </div>
             </div>
             <h3>Fun-A-Boo</h3>
-            <p class="portfolio-card-tagline">Kids Activities & Entertainment</p>
-            <p>Fun-A-Boo is a platform dedicated to creating joyful, educational, and engaging experiences for children and families. From activity kits to interactive events, we make learning fun and accessible for kids of all ages.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">Kids Activities</span>
-              <span class="badge">Entertainment</span>
-              <span class="badge">Family</span>
-            </div>
-          </div>
-
-          <!-- Watts Immigration -->
-          <div class="portfolio-card portfolio-item reveal delay-1" data-category="immigration">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Wi</div>
-              <span class="badge">Immigration</span>
+            <p>Kids activities and entertainment platform creating joyful experiences for families.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=600&h=500&fit=crop&q=80" alt="Watts Immigration — Immigration Consulting" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Immigration</span>
+                <span class="portfolio-scroll-card-date">Founded 2020</span>
+              </div>
             </div>
             <h3>Watts Immigration</h3>
-            <p class="portfolio-card-tagline">Immigration Consulting & Study Abroad</p>
-            <p>Watts Immigration provides full-service immigration consulting for individuals and families looking to move to Canada. From Express Entry and PNP to study permits and work visas, our RCIC-certified consultants ensure smooth, compliant pathways.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">Immigration</span>
-              <span class="badge">Express Entry</span>
-              <span class="badge">Study Permits</span>
-            </div>
-          </div>
-
-          <!-- Watts Technologies -->
-          <div class="portfolio-card portfolio-item reveal delay-2" data-category="technology">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Wt</div>
-              <span class="badge">Technology</span>
+            <p>Full-service immigration consulting and study abroad advisory for Canada and beyond.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=500&fit=crop&q=80" alt="Watts Technologies — AI Automation" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Technology</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
             </div>
             <h3>Watts Technologies</h3>
-            <p class="portfolio-card-tagline">AI Automation & Content Marketing</p>
-            <p>Watts Technologies builds AI-powered automation tools and content marketing solutions for modern enterprises. From lead generation bots to full-stack marketing automation, we help businesses scale their digital presence efficiently.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">AI Automation</span>
-              <span class="badge">Content Marketing</span>
-              <span class="badge">Lead Generation</span>
-            </div>
-          </div>
-
-          <!-- Watts Realty -->
-          <div class="portfolio-card portfolio-item reveal delay-1" data-category="real-estate">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Wr</div>
-              <span class="badge">Real Estate</span>
+            <p>AI automation and content marketing solutions for modern enterprises.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop&q=80" alt="Watts Realty — Premium Real Estate" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Real Estate</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
             </div>
             <h3>Watts Realty</h3>
-            <p class="portfolio-card-tagline">Premium Real Estate Brokerage</p>
-            <p>Watts Realty operates as a premium real estate brokerage across Chandigarh Tricity (India) and Dubai (UAE). We specialize in residential and commercial properties, offering expert advisory, property management, and cross-border investment opportunities.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">Real Estate</span>
-              <span class="badge">Chandigarh</span>
-              <span class="badge">Dubai</span>
-            </div>
-          </div>
-
-          <!-- Watts Community -->
-          <div class="portfolio-card portfolio-item reveal delay-2" data-category="community">
-            <div class="portfolio-card-header">
-              <div class="portfolio-card-logo">Wc</div>
-              <span class="badge">Community</span>
+            <p>Premium real estate brokerage across Chandigarh Tricity and Dubai.</p>
+          </a>
+          <a href="#" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop&q=80" alt="Watts Community — CSR & AI Education" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Community</span>
+                <span class="portfolio-scroll-card-date">Founded 2022</span>
+              </div>
             </div>
             <h3>Watts Community</h3>
-            <p class="portfolio-card-tagline">CSR-Driven AI Education & Student Community</p>
-            <p>Watts Community is our CSR initiative focused on AI education, skill development, and community building. We run free workshops, mentorship programs, and student communities that empower the next generation of tech leaders.</p>
-            <div class="portfolio-card-tags">
-              <span class="badge">CSR</span>
-              <span class="badge">AI Education</span>
-              <span class="badge">Student Community</span>
-            </div>
+            <p>CSR-driven AI education and student community building the next generation.</p>
+          </a>
           </div>
         </div>
       </div>
