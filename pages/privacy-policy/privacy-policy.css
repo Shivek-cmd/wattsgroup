@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════════════════════════
+   WATTS GROUP — Privacy Policy & Legal Page Styles
+   ═══════════════════════════════════════════════════════════ */
+
+.page-hero { padding: var(--space-20) 0 var(--space-12); background: var(--color-bg); }
+.page-hero-content { max-width: 640px; }
+.page-hero h1 { font-size: var(--text-display); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: var(--space-4); }
+.page-hero p { font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.7; }
+
+.legal-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.legal-content h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.legal-content h3 {
+  font-size: var(--text-lg);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.legal-content p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+
+.legal-content ul {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.legal-content li {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-2);
+}
+
+.legal-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.legal-content a:hover {
+  text-decoration: none;
+}
+
+.legal-updated {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-8);
+}

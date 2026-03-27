@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════════════
+   WATTS GROUP — Consulting Page Styles
+   ═══════════════════════════════════════════════════════════ */
+
+.page-hero { padding: var(--space-20) 0 var(--space-12); background: var(--color-bg); }
+.page-hero-content { max-width: 640px; }
+.page-hero h1 { font-size: var(--text-display); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: var(--space-4); }
+.page-hero p { font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.7; }
+
+/* Services Overview */
+.services-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+.services-intro-text h2 { margin-bottom: var(--space-4); }
+.services-intro-text p { margin-bottom: var(--space-4); }
+.services-intro-visual {
+  border-radius: var(--radius-2xl);
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg-secondary));
+  display: flex; align-items: center; justify-content: center;
+}
+.services-intro-visual svg { width: 80px; height: 80px; color: var(--color-primary); opacity: 0.6; }
+@media (max-width: 768px) { .services-intro { grid-template-columns: 1fr; gap: var(--space-8); } }
+
+/* Service Areas */
+.service-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.service-area-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  transition: all var(--duration-base) var(--ease-out);
+}
+.service-area-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+.service-area-icon {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+.service-area-icon svg { width: 22px; height: 22px; }
+.service-area-card h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.service-area-card p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+.service-area-card ul { margin-top: var(--space-3); padding-left: var(--space-4); }
+.service-area-card li { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.8; }
+@media (max-width: 768px) { .service-areas-grid { grid-template-columns: 1fr; } }
+
+/* Our Approach */
+.approach-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+.approach-step {
+  text-align: center;
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+.approach-number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+.approach-step h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.approach-step p { font-size: var(--text-sm); color: var(--color-text-muted); }
+@media (max-width: 768px) { .approach-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .approach-steps { grid-template-columns: 1fr; } }
+
+/* Case Studies */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+.case-study-card {
+  padding: var(--space-10);
+  border-radius: var(--radius-xl);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+.case-study-card .badge { margin-bottom: var(--space-4); }
+.case-study-card h3 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.case-study-card p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+.case-study-result {
+  display: flex; gap: var(--space-6); padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+.case-study-result .stat { text-align: center; }
+.case-study-result .stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.case-study-result .stat span { font-size: var(--text-xs); color: var(--color-text-muted); }
+@media (max-width: 640px) { .case-studies-grid { grid-template-columns: 1fr; } }
+
+/* CTA */
+.consult-cta {
+  background: var(--color-text); color: var(--color-bg);
+  border-radius: var(--radius-2xl); padding: var(--space-16) var(--space-12); text-align: center;
+}
+.consult-cta h2 { color: var(--color-bg); margin-bottom: var(--space-4); }
+.consult-cta p { color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto var(--space-8); }

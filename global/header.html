@@ -1,0 +1,310 @@
+<!-- ═══════════════════════════════════════════════════════════
+     WATTS GROUP — Sticky Navbar (Self-Contained: HTML + CSS + JS)
+     Paste into GHL Header tracking code section.
+     ═══════════════════════════════════════════════════════════ -->
+
+<style>
+/* ─── Navbar ─── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: 0.85rem 0;
+  transition: background var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              padding var(--duration-base) var(--ease-out);
+}
+
+.site-header.scrolled {
+  background: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--color-border);
+  padding: 0.6rem 0;
+}
+
+[data-theme="dark"] .site-header.scrolled {
+  background: rgba(10, 10, 10, 0.92);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ─── Logo ─── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+
+/* ─── Desktop Links ─── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.nav-links a {
+  padding: 0.5rem 0.9rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-text);
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-cta {
+  margin-left: var(--space-4);
+}
+
+/* ─── Mobile Menu Button ─── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: calc(var(--z-overlay) + 1);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ─── Mobile Menu Drawer ─── */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
+  background: var(--color-bg);
+  z-index: var(--z-overlay);
+  padding: 6rem var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: right var(--duration-slow) var(--ease-out);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.08);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: calc(var(--z-overlay) - 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  padding: 0.85rem 0;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--duration-fast) var(--ease-out);
+  display: block;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: var(--color-primary);
+}
+
+.mobile-menu .btn {
+  margin-top: var(--space-6);
+  width: 100%;
+  text-align: center;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+</style>
+
+<header class="site-header" role="banner">
+  <nav class="nav-container" aria-label="Primary navigation">
+
+    <a href="/" class="nav-logo" aria-label="Watts Group — Home">
+      <img src="/assets/images/watts-group-logo.png" alt="Watts Group logo — Power That Empowers" width="160" height="36">
+    </a>
+
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="/" role="menuitem">Home</a></li>
+      <li role="none"><a href="/about" role="menuitem">About</a></li>
+      <li role="none"><a href="/investments" role="menuitem">Investments</a></li>
+      <li role="none"><a href="/consulting" role="menuitem">Consulting</a></li>
+      <li role="none"><a href="/portfolio" role="menuitem">Portfolio</a></li>
+      <li role="none"><a href="/blog" role="menuitem">Blog</a></li>
+      <li role="none"><a href="/contact" role="menuitem">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="/contact" class="btn btn-primary btn-sm">Get in Touch</a>
+    </div>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+</header>
+
+<div class="mobile-overlay" aria-hidden="true"></div>
+
+<nav class="mobile-menu" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/investments">Investments</a>
+  <a href="/consulting">Consulting</a>
+  <a href="/portfolio">Portfolio</a>
+  <a href="/blog">Blog</a>
+  <a href="/contact">Contact</a>
+  <a href="/contact" class="btn btn-primary">Get in Touch</a>
+</nav>
+
+<script>
+(function() {
+  var toggle = document.querySelector(".nav-toggle");
+  var menu = document.querySelector(".mobile-menu");
+  var overlay = document.querySelector(".mobile-overlay");
+  var header = document.querySelector(".site-header");
+
+  if (!toggle || !menu || !overlay || !header) return;
+
+  function closeMenu() {
+    toggle.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    menu.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  function openMenu() {
+    toggle.classList.add("open");
+    toggle.setAttribute("aria-expanded", "true");
+    menu.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  toggle.addEventListener("click", function() {
+    if (menu.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  /* Scroll: sticky header background */
+  var lastScroll = 0;
+  window.addEventListener("scroll", function() {
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+    lastScroll = st;
+  }, { passive: true });
+
+  /* Active link detection */
+  var path = window.location.pathname.replace(/\/$/, "") || "/";
+  var links = document.querySelectorAll(".nav-links a, .mobile-menu a:not(.btn)");
+  links.forEach(function(link) {
+    var href = link.getAttribute("href").replace(/\/$/, "") || "/";
+    if (href === path) {
+      link.classList.add("active");
+    }
+  });
+
+  /* Close mobile menu on link click */
+  var mobileLinks = menu.querySelectorAll("a");
+  mobileLinks.forEach(function(link) {
+    link.addEventListener("click", closeMenu);
+  });
+
+  /* Scroll progress bar */
+  var progressBar = document.getElementById("scroll-progress");
+  if (progressBar) {
+    window.addEventListener("scroll", function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrollPercent = (scrollTop / docHeight) * 100;
+      progressBar.style.width = scrollPercent + "%";
+    }, { passive: true });
+  }
+})();
+</script>
