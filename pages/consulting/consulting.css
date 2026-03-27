@@ -76,9 +76,10 @@
 .approach-zigzag-step {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-10);
+  gap: var(--space-16);
   align-items: center;
   position: relative;
+  padding: 0 var(--space-8);
 }
 
 /* Alternating layout: even steps reverse */

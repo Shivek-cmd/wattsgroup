@@ -153,7 +153,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
-  align-items: start;
+  align-items: stretch;
 }
 
 .whoweare-left h2 { margin-bottom: var(--space-4); }
@@ -179,15 +179,20 @@
 .whoweare-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
+  gap: var(--space-6);
+  align-content: stretch;
 }
 
 .stat-box {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-10) var(--space-6);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: all var(--duration-base) var(--ease-out);
   overflow: hidden;
 }
@@ -200,7 +205,7 @@
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: var(--color-primary);
   display: block;
@@ -257,7 +262,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-5);
-  padding: var(--space-6);
+  padding: var(--space-6) var(--space-8) var(--space-6) var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   background: var(--color-card-bg);
@@ -293,7 +298,7 @@
 }
 
 .pillar-tab-icon {
-  width: 48px; height: 48px; min-width: 48px;
+  width: 48px; height: 48px; min-width: 48px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   border-radius: var(--radius-lg);
   background: var(--color-bg-secondary);
@@ -535,13 +540,13 @@
 .blog-card-v2-arrow svg { width: 18px; height: 18px; }
 .blog-card-v2:hover .blog-card-v2-arrow { opacity: 1; transform: translate(0, 0); }
 
-.blog-card-v2-body { padding: var(--space-5) var(--space-6) var(--space-6); }
+.blog-card-v2-body { padding: var(--space-6) var(--space-6) var(--space-8); }
 
 .blog-card-v2-body h3 {
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   font-weight: 600;
   line-height: 1.4;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
   color: var(--color-text);
 }
 
@@ -550,6 +555,9 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   align-items: center;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
 }
 
 .blog-card-v2-tag {

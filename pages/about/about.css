@@ -215,14 +215,14 @@
 .leader-card-v2-social svg { width: 16px; height: 16px; }
 
 .leader-card-v2-body {
-  padding: var(--space-5) var(--space-6) var(--space-6);
+  padding: var(--space-6) var(--space-6) var(--space-8);
   text-align: center;
 }
 
 .leader-card-v2-body h3 {
   font-size: var(--text-lg);
   font-weight: 600;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
   color: var(--color-text);
 }
 
@@ -230,13 +230,13 @@
   font-size: var(--text-sm);
   color: var(--color-primary);
   font-weight: 500;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 .leader-card-v2-body p:last-child {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Blur hover effect for leadership grid */
