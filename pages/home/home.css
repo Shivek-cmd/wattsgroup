@@ -726,8 +726,6 @@
   height: 620px;
   position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .testimonials-col {
@@ -789,8 +787,12 @@
 
 .testimonial-p-card--featured {
   border-color: var(--color-primary);
-  background: var(--color-text);
-  color: var(--color-bg);
+  background: #121212;
+  color: #fff;
+}
+
+.testimonial-p-card--featured .testimonial-p-stars svg {
+  fill: #f59e0b;
 }
 
 .testimonial-p-card--featured .testimonial-p-quote {
@@ -803,7 +805,7 @@
 }
 
 .testimonial-p-card--featured .testimonial-p-author span {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.7);
 }
 
 .testimonial-p-stars {
