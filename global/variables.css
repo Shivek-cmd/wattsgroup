@@ -18,9 +18,9 @@
 
   /* ─── Brand ─── */
   --color-primary:       #BD2426;
-  --color-primary-hover: #b83240;
-  --color-primary-light: rgba(218, 65, 80, 0.08);
-  --color-accent:        #da4150;
+  --color-primary-hover: #9E1B1D;
+  --color-primary-light: rgba(189, 36, 38, 0.1)
+  --color-accent:        #E12C2E;
 
   /* ─── Borders ─── */
   --color-border:        #E6E6E6;
