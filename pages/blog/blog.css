@@ -124,11 +124,27 @@
 }
 
 .blog-card-image {
+  position: relative;
   aspect-ratio: 16/9;
   background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.blog-card-category {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  z-index: 2;
+  text-transform: uppercase;
 }
 
 .blog-card-image svg { width: 32px; height: 32px; color: var(--color-text-subtle); }
