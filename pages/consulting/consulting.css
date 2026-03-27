@@ -19,10 +19,9 @@
 .services-intro-visual {
   border-radius: var(--radius-2xl);
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-bg-secondary));
-  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
-.services-intro-visual svg { width: 80px; height: 80px; color: var(--color-primary); opacity: 0.6; }
+.services-intro-visual img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 768px) { .services-intro { grid-template-columns: 1fr; gap: var(--space-8); } }
 
 /* Service Areas */

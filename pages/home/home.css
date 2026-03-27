@@ -629,23 +629,7 @@
 
 @media (max-width: 768px) {
   .portfolio-scroll-card {
-    flex: 0 0 360px;
-  }
-  .portfolio-scroll-sticky {
-    position: relative;
-    height: auto;
-  }
-  .portfolio-scroll-section {
-    height: auto !important;
-  }
-  .portfolio-scroll-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: var(--space-4);
-  }
-  .portfolio-scroll-card {
-    scroll-snap-align: start;
+    flex: 0 0 300px;
   }
 }
 
