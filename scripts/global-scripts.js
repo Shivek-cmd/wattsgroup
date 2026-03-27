@@ -344,29 +344,66 @@
     });
   });
 
-  /* ─── Portfolio Scroll-Driven Horizontal Movement ─── */
+  /* ─── Portfolio Scroll-Driven Horizontal Movement (Pinned) ─── */
   var scrollTrack = document.getElementById("portfolioScrollTrack");
   if (scrollTrack) {
     var scrollSection = scrollTrack.closest(".portfolio-scroll-section");
-    var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+    var isMobile = window.innerWidth <= 768;
+
+    function setupPortfolioPin() {
+      isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        scrollSection.style.height = "";
+        scrollTrack.style.transform = "";
+        return;
+      }
+      var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+      /* Make section tall enough: viewport height + horizontal overflow */
+      var sectionH = window.innerHeight + maxScroll;
+      scrollSection.style.height = sectionH + "px";
+    }
 
     function updatePortfolioScroll() {
+      if (isMobile) return;
+      var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
       var rect = scrollSection.getBoundingClientRect();
-      var sectionHeight = scrollSection.offsetHeight;
-      var viewH = window.innerHeight;
-      /* Progress: 0 when section top hits viewport bottom, 1 when section bottom hits viewport top */
-      var progress = (viewH - rect.top) / (viewH + sectionHeight);
-      progress = Math.max(0, Math.min(1, progress));
+      /* Progress: 0 at top of section, 1 when sticky container would unstick */
+      var scrollable = scrollSection.offsetHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
       var translateX = progress * maxScroll;
       scrollTrack.style.transform = "translateX(-" + translateX + "px)";
     }
 
+    setupPortfolioPin();
     window.addEventListener("scroll", updatePortfolioScroll, { passive: true });
     window.addEventListener("resize", function () {
-      maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+      setupPortfolioPin();
       updatePortfolioScroll();
     });
     updatePortfolioScroll();
+  }
+
+  /* ─── Testimonials 3-Column Parallax ─── */
+  var testimonialsSection = document.getElementById("testimonialsParallax");
+  if (testimonialsSection) {
+    var colLeft = testimonialsSection.querySelector(".testimonials-col-left");
+    var colRight = testimonialsSection.querySelector(".testimonials-col-right");
+
+    function updateTestimonialsParallax() {
+      if (window.innerWidth <= 768) return;
+      var rect = testimonialsSection.getBoundingClientRect();
+      var viewH = window.innerHeight;
+      var sectionH = testimonialsSection.offsetHeight;
+      var progress = (viewH - rect.top) / (viewH + sectionH);
+      progress = Math.max(0, Math.min(1, progress));
+      var offset = (progress - 0.5) * 60;
+      if (colLeft) colLeft.style.transform = "translateY(" + offset + "px)";
+      if (colRight) colRight.style.transform = "translateY(" + (-offset) + "px)";
+    }
+
+    window.addEventListener("scroll", updateTestimonialsParallax, { passive: true });
+    updateTestimonialsParallax();
   }
 
   /* ─── TOC Active Heading Highlight (Blog Detail Pages) ─── */
