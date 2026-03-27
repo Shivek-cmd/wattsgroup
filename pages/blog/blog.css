@@ -2,7 +2,7 @@
    WATTS GROUP — Blog Page Styles
    ═══════════════════════════════════════════════════════════ */
 
-.page-hero { padding: var(--space-20) 0 var(--space-12); background: var(--color-bg); }
+.page-hero { padding: calc(var(--space-20) + 72px) 0 var(--space-12); background: var(--color-bg); }
 .page-hero-content { max-width: 640px; }
 .page-hero h1 { font-size: var(--text-display); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: var(--space-4); }
 .page-hero p { font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.7; }
