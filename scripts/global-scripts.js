@@ -227,6 +227,63 @@
     });
   }
 
+  /* ─── Blog Search & Category Filter ─── */
+  var blogSearch = document.querySelector(".blog-search input");
+  var blogFilterBtns = document.querySelectorAll(".blog-categories .filter-btn");
+  var blogCards = document.querySelectorAll(".blog-grid .blog-card");
+  var featuredPost = document.querySelector(".featured-post");
+  var activeBlogCategory = "all";
+
+  function filterBlogPosts() {
+    var query = blogSearch ? blogSearch.value.toLowerCase().trim() : "";
+
+    /* Filter featured post */
+    if (featuredPost) {
+      var fpCategory = featuredPost.getAttribute("data-category") || "";
+      var fpText = featuredPost.textContent.toLowerCase();
+      var fpCatMatch = activeBlogCategory === "all" || fpCategory === activeBlogCategory;
+      var fpSearchMatch = !query || fpText.indexOf(query) !== -1;
+      featuredPost.style.display = fpCatMatch && fpSearchMatch ? "" : "none";
+    }
+
+    /* Filter blog cards */
+    blogCards.forEach(function (card) {
+      var cardCategory = card.getAttribute("data-category") || "";
+      var cardText = card.textContent.toLowerCase();
+      var catMatch = activeBlogCategory === "all" || cardCategory === activeBlogCategory;
+      var searchMatch = !query || cardText.indexOf(query) !== -1;
+
+      if (catMatch && searchMatch) {
+        card.style.opacity = "1";
+        card.style.transform = "scale(1)";
+        card.style.display = "";
+      } else {
+        card.style.opacity = "0";
+        card.style.transform = "scale(0.95)";
+        (function (c) {
+          setTimeout(function () {
+            if (c.style.opacity === "0") c.style.display = "none";
+          }, 300);
+        })(card);
+      }
+    });
+  }
+
+  if (blogFilterBtns.length > 0 && (blogCards.length > 0 || featuredPost)) {
+    blogFilterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activeBlogCategory = this.getAttribute("data-filter");
+        blogFilterBtns.forEach(function (b) { b.classList.remove("active"); });
+        this.classList.add("active");
+        filterBlogPosts();
+      });
+    });
+  }
+
+  if (blogSearch) {
+    blogSearch.addEventListener("input", filterBlogPosts);
+  }
+
   /* ─── Table of Contents (Blog) ─── */
   var tocContainer = document.getElementById("toc-container");
   var postBody = document.getElementById("post-body");
