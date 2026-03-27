@@ -62,6 +62,7 @@
   flex-wrap: wrap;
 }
 
+/* ─── Hero Visual ─── */
 .hero-visual {
   position: absolute;
   top: 50%;
@@ -79,7 +80,7 @@
   height: 100%;
 }
 
-/* ─── 3 Separate Orbit Rings (static, visible) ─── */
+/* ─── Orbit Rings ─── */
 .hero-orbit-ring {
   position: absolute;
   border-radius: 50%;
@@ -106,7 +107,7 @@
   border: 1px solid rgba(218, 65, 80, 0.1);
 }
 
-/* ─── Orbit Tracks (each rotates independently) ─── */
+/* ─── Orbit Tracks (same speed + alternate direction) ─── */
 .hero-orbit-track {
   position: absolute;
   top: 50%;
@@ -118,39 +119,34 @@
   width: 260px;
   height: 260px;
   transform: translate(-50%, -50%);
-  animation: orbitSpin1 40s linear infinite;
+  animation: orbitSpin 60s linear infinite;
 }
 
 .hero-orbit-track--2 {
   width: 420px;
   height: 420px;
   transform: translate(-50%, -50%);
-  animation: orbitSpin2 55s linear infinite;
+  animation: orbitSpin 60s linear infinite reverse;
 }
 
 .hero-orbit-track--3 {
   width: 580px;
   height: 580px;
   transform: translate(-50%, -50%);
-  animation: orbitSpin3 70s linear infinite reverse;
+  animation: orbitSpin 60s linear infinite;
 }
 
-@keyframes orbitSpin1 {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+/* ─── Single Clean Animation ─── */
+@keyframes orbitSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
-@keyframes orbitSpin2 {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes orbitSpin3 {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* ─── Orbit Items (clickable pillars) ─── */
+/* ─── Orbit Items (NO self rotation bug) ─── */
 .hero-orbit-item {
   position: absolute;
   top: 0;
@@ -159,61 +155,93 @@
   height: 100px;
   margin-left: -50px;
   margin-top: -50px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
+
   text-decoration: none;
-  pointer-events: auto;
   cursor: pointer;
+
+  /* keep orientation stable */
+  transform: rotate(-15deg);
 }
 
-/* Counter-rotate each item to stay upright (exactly cancels parent + tilt) */
+/* base position */
+.hero-orbit-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  text-decoration: none;
+}
+
+/* evenly spaced positions */
 .hero-orbit-track--1 .hero-orbit-item {
-  animation: orbitCounter1 40s linear infinite;
+  transform: rotate(0deg) translateY(-50%);
 }
 
 .hero-orbit-track--2 .hero-orbit-item {
-  animation: orbitCounter2 55s linear infinite;
+  transform: rotate(120deg) translateY(-50%);
 }
 
 .hero-orbit-track--3 .hero-orbit-item {
-  animation: orbitCounter3 70s linear infinite reverse;
+  transform: rotate(240deg) translateY(-50%);
 }
 
-@keyframes orbitCounter1 {
-  from { transform: rotate(-15deg); }
-  to { transform: rotate(calc(-360deg - 15deg)); }
+/* 🔥 COUNTER ROTATION (this stops spinning) */
+.hero-orbit-track--1 .hero-orbit-item {
+  animation: counterSpin 60s linear infinite;
 }
 
-@keyframes orbitCounter2 {
-  from { transform: rotate(-15deg); }
-  to { transform: rotate(calc(-360deg - 15deg)); }
+.hero-orbit-track--2 .hero-orbit-item {
+  animation: counterSpin 60s linear infinite reverse;
 }
 
-@keyframes orbitCounter3 {
-  from { transform: rotate(-15deg); }
-  to { transform: rotate(calc(360deg - 15deg)); }
+.hero-orbit-track--3 .hero-orbit-item {
+  animation: counterSpin 60s linear infinite;
 }
 
+/* keyframe */
+@keyframes counterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+/* ─── Icon ─── */
 .hero-orbit-icon {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   background: var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(218, 65, 80, 0.2), 0 0 30px rgba(218, 65, 80, 0.1);
+  box-shadow: 0 4px 20px rgba(218, 65, 80, 0.2),
+              0 0 30px rgba(218, 65, 80, 0.1);
   border: 2px solid rgba(218, 65, 80, 0.3);
   transition: all 0.3s ease;
 }
 
 .hero-orbit-item:hover .hero-orbit-icon {
+  transform: scale(1.1);
   box-shadow: 0 4px 24px rgba(218, 65, 80, 0.4);
   border-color: #fff;
-  transform: scale(1.1);
 }
 
 .hero-orbit-icon svg {
@@ -222,17 +250,17 @@
   stroke: #fff;
 }
 
+/* ─── Label ─── */
 .hero-orbit-label {
-  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--color-text);
-  white-space: nowrap;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* Subtle glow trail behind orbiting items */
+/* ─── Glow ─── */
 .hero-orbit-item::before {
   content: '';
   position: absolute;
@@ -245,6 +273,7 @@
   transform: translate(-50%, -60%);
   z-index: -1;
 }
+
 
 @media (max-width: 1024px) {
   .hero-visual {
@@ -262,6 +291,9 @@
   .hero-orbit-icon svg { width: 18px; height: 18px; }
   .hero-orbit-label { font-size: 9px; }
 }
+.hero-orbit-track--1 { z-index: 3; }
+.hero-orbit-track--2 { z-index: 2; }
+.hero-orbit-track--3 { z-index: 1; }
 
 @media (max-width: 768px) {
   .hero {
