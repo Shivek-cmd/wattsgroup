@@ -147,6 +147,54 @@ p {
   position: relative;
 }
 
+/* ─── Page Hero with Background Image ─── */
+.page-hero--bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: calc(var(--space-20) + 72px) 0 var(--space-12);
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-hero--bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18,18,18,0.72) 0%, rgba(18,18,18,0.88) 100%);
+  z-index: 1;
+}
+
+.page-hero--bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero--bg h1,
+.page-hero--bg p,
+.page-hero--bg .breadcrumb,
+.page-hero--bg .breadcrumb a,
+.page-hero--bg .breadcrumb span {
+  color: #fff;
+}
+
+.page-hero--bg p {
+  color: rgba(255,255,255,0.95);
+  font-weight: 400;
+}
+
+.page-hero--bg .breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .page-hero--bg {
+    min-height: 260px;
+  }
+}
+
 /* ─── Section Header ─── */
 .section-header {
   margin-bottom: var(--space-12);
@@ -558,12 +606,29 @@ body.page-grid::after {
 .marquee-item {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
-  font-size: var(--text-lg);
+  gap: var(--space-3);
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
   white-space: nowrap;
   flex-shrink: 0;
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.marquee-item:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.marquee-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.5;
 }
 
 .marquee-dot {

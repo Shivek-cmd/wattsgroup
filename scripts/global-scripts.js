@@ -258,6 +258,81 @@
     }
   }
 
+  /* ─── Pillar Tab Switching (Pattern 1) ─── */
+  var pillarTabs = document.querySelectorAll(".pillar-tab");
+  var pillarImgs = document.querySelectorAll(".pillar-img");
+
+  if (pillarTabs.length > 0 && pillarImgs.length > 0) {
+    pillarTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var pillar = this.getAttribute("data-pillar");
+
+        /* Update tabs */
+        pillarTabs.forEach(function (t) {
+          t.classList.remove("active");
+          t.setAttribute("aria-selected", "false");
+        });
+        this.classList.add("active");
+        this.setAttribute("aria-selected", "true");
+
+        /* Update images */
+        pillarImgs.forEach(function (img) {
+          img.classList.remove("active");
+          if (img.getAttribute("data-pillar") === pillar) {
+            img.classList.add("active");
+          }
+        });
+      });
+    });
+  }
+
+  /* ─── Slot-Machine Counter Animation (Pattern 4) ─── */
+  var slotCounters = document.querySelectorAll(".counter[data-target]");
+  if (slotCounters.length > 0) {
+    var slotObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            if (el.classList.contains("counted")) return;
+            el.classList.add("counted");
+
+            var target = parseInt(el.getAttribute("data-target"), 10);
+            var suffix = el.getAttribute("data-suffix") || "";
+            var prefix = el.getAttribute("data-prefix") || "";
+            var duration = 2000;
+            var startTime = null;
+
+            /* Add slot animation class */
+            el.classList.add("animated");
+
+            function animateSlot(timestamp) {
+              if (!startTime) startTime = timestamp;
+              var progress = Math.min((timestamp - startTime) / duration, 1);
+              /* Ease out cubic */
+              var eased = 1 - Math.pow(1 - progress, 3);
+              var current = Math.floor(eased * target);
+              el.textContent = prefix + current + suffix;
+              if (progress < 1) {
+                requestAnimationFrame(animateSlot);
+              } else {
+                el.textContent = prefix + target + suffix;
+              }
+            }
+
+            requestAnimationFrame(animateSlot);
+            slotObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    slotCounters.forEach(function (el) {
+      slotObserver.observe(el);
+    });
+  }
+
   /* ─── Smooth Scroll for Anchor Links ─── */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (e) {
@@ -268,4 +343,61 @@
       }
     });
   });
+
+  /* ─── Portfolio Scroll-Driven Horizontal Movement ─── */
+  var scrollTrack = document.getElementById("portfolioScrollTrack");
+  if (scrollTrack) {
+    var scrollSection = scrollTrack.closest(".portfolio-scroll-section");
+    var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+
+    function updatePortfolioScroll() {
+      var rect = scrollSection.getBoundingClientRect();
+      var sectionHeight = scrollSection.offsetHeight;
+      var viewH = window.innerHeight;
+      /* Progress: 0 when section top hits viewport bottom, 1 when section bottom hits viewport top */
+      var progress = (viewH - rect.top) / (viewH + sectionHeight);
+      progress = Math.max(0, Math.min(1, progress));
+      var translateX = progress * maxScroll;
+      scrollTrack.style.transform = "translateX(-" + translateX + "px)";
+    }
+
+    window.addEventListener("scroll", updatePortfolioScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+      updatePortfolioScroll();
+    });
+    updatePortfolioScroll();
+  }
+
+  /* ─── TOC Active Heading Highlight (Blog Detail Pages) ─── */
+  var tocLinks = document.querySelectorAll(".toc a");
+  if (tocLinks.length > 0) {
+    var tocHeadings = [];
+    tocLinks.forEach(function (link) {
+      var id = link.getAttribute("href").replace("#", "");
+      var heading = document.getElementById(id);
+      if (heading) tocHeadings.push({ el: heading, link: link });
+    });
+
+    if (tocHeadings.length > 0) {
+      function updateActiveToc() {
+        var scrollPos = window.scrollY + 120;
+        var activeIndex = 0;
+
+        for (var i = 0; i < tocHeadings.length; i++) {
+          if (tocHeadings[i].el.offsetTop <= scrollPos) {
+            activeIndex = i;
+          }
+        }
+
+        tocLinks.forEach(function (link) {
+          link.classList.remove("active");
+        });
+        tocHeadings[activeIndex].link.classList.add("active");
+      }
+
+      window.addEventListener("scroll", updateActiveToc, { passive: true });
+      updateActiveToc();
+    }
+  }
 })();

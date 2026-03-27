@@ -146,63 +146,113 @@
   .values-grid { grid-template-columns: 1fr; }
 }
 
-/* ─── Leadership ─── */
+/* ═══ PATTERN 3 — Team Portrait Cards with Blur Hover ═══ */
 .leadership-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
-.leader-card {
+.leader-card-v2 {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leader-card-v2-image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.leader-card-v2-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leader-card-v2:hover .leader-card-v2-image img {
+  transform: scale(1.05);
+}
+
+.leader-card-v2-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18,18,18,0.85) 0%, rgba(18,18,18,0.2) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.leader-card-v2:hover .leader-card-v2-overlay { opacity: 1; }
+
+.leader-card-v2-social {
+  position: absolute;
+  bottom: var(--space-4); left: var(--space-4);
+  display: flex; gap: var(--space-2);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease 0.1s;
+}
+
+.leader-card-v2:hover .leader-card-v2-social {
+  opacity: 1; transform: translateY(0);
+}
+
+.leader-card-v2-social a {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.leader-card-v2-social a:hover { background: var(--color-primary); }
+.leader-card-v2-social svg { width: 16px; height: 16px; }
+
+.leader-card-v2-body {
+  padding: var(--space-6) var(--space-6) var(--space-8);
   text-align: center;
 }
 
-.leader-photo {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto var(--space-4);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-border));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.leader-photo svg {
-  width: 48px;
-  height: 48px;
-  color: var(--color-text-subtle);
-}
-
-.leader-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.leader-card h3 {
+.leader-card-v2-body h3 {
   font-size: var(--text-lg);
-  margin-bottom: var(--space-1);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
 }
 
-.leader-card .leader-role {
+.leader-card-v2-role {
   font-size: var(--text-sm);
   color: var(--color-primary);
   font-weight: 500;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
-.leader-card p {
+.leader-card-v2-body p:last-child {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.6;
-  max-width: 280px;
-  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Blur hover effect for leadership grid */
+.leadership-grid.blur-hover-group:hover .leader-card-v2 {
+  filter: blur(2px); opacity: 0.65;
+}
+.leadership-grid.blur-hover-group:hover .leader-card-v2:hover {
+  filter: blur(0); opacity: 1;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
-  .leadership-grid { grid-template-columns: 1fr; }
+  .leadership-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .leadership-grid.blur-hover-group:hover .leader-card-v2 { filter: none; opacity: 1; }
 }
 
 /* ─── Milestones Timeline ─── */
