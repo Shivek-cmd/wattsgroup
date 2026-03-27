@@ -384,46 +384,24 @@
     updatePortfolioScroll();
   }
 
-  /* ─── Testimonials 3-Column Parallax ─── */
+  /* ─── Testimonials Auto-Scroll (marquee-style) ─── */
   var testimonialsSection = document.getElementById("testimonialsParallax");
   if (testimonialsSection) {
     var colLeft = testimonialsSection.querySelector(".testimonials-col-left");
     var colRight = testimonialsSection.querySelector(".testimonials-col-right");
-    var leftCards = colLeft ? colLeft.querySelectorAll(".testimonial-p-card") : [];
-    var rightCards = colRight ? colRight.querySelectorAll(".testimonial-p-card") : [];
 
-    function updateTestimonialsParallax() {
-      if (window.innerWidth <= 768) return;
-      var rect = testimonialsSection.getBoundingClientRect();
-      var viewH = window.innerHeight;
-      var sectionH = testimonialsSection.offsetHeight;
-      /* progress: 0 when section enters viewport, 1 when it exits */
-      var progress = (viewH - rect.top) / (viewH + sectionH);
-      progress = Math.max(0, Math.min(1, progress));
-      /* Stronger offset for visible movement */
-      var offset = (progress - 0.5) * 180;
-      if (colLeft) colLeft.style.transform = "translateY(" + offset + "px)";
-      if (colRight) colRight.style.transform = "translateY(" + (-offset) + "px)";
-
-      /* Fade cards based on their position in the viewport */
-      function fadeCards(cards) {
-        for (var i = 0; i < cards.length; i++) {
-          var cardRect = cards[i].getBoundingClientRect();
-          var cardCenter = cardRect.top + cardRect.height / 2;
-          /* Cards fully in viewport: opacity 1, fading as they leave */
-          var distFromCenter = Math.abs(cardCenter - viewH / 2);
-          var maxDist = viewH * 0.6;
-          var opacity = 1 - Math.max(0, (distFromCenter - maxDist * 0.4) / (maxDist * 0.6));
-          opacity = Math.max(0.15, Math.min(1, opacity));
-          cards[i].style.opacity = opacity;
-        }
+    /* Clone cards to create seamless infinite loop */
+    function cloneCards(col) {
+      if (!col || window.innerWidth <= 768) return;
+      var cards = col.querySelectorAll(".testimonial-p-card");
+      for (var i = 0; i < cards.length; i++) {
+        var clone = cards[i].cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        col.appendChild(clone);
       }
-      fadeCards(leftCards);
-      fadeCards(rightCards);
     }
-
-    window.addEventListener("scroll", updateTestimonialsParallax, { passive: true });
-    updateTestimonialsParallax();
+    cloneCards(colLeft);
+    cloneCards(colRight);
   }
 
   /* ─── TOC Active Heading Highlight (Blog Detail Pages) ─── */

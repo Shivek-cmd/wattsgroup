@@ -363,7 +363,7 @@
 }
 
 .portfolio-scroll-card {
-  flex: 0 0 420px;
+  flex: 0 0 520px;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -378,7 +378,7 @@
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   background: var(--color-bg-secondary);
 }
 
@@ -437,7 +437,7 @@
 
 @media (max-width: 768px) {
   .portfolio-scroll-card {
-    flex: 0 0 320px;
+    flex: 0 0 360px;
   }
   .portfolio-scroll-sticky {
     position: relative;
@@ -717,14 +717,17 @@
   margin-bottom: var(--space-6);
 }
 
-/* ═══ Testimonials 3-Column Parallax ═══ */
+/* ═══ Testimonials 3-Column Auto-Scroll ═══ */
 .testimonials-parallax {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: var(--space-8);
   align-items: stretch;
-  min-height: 600px;
+  height: 620px;
   position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .testimonials-col {
@@ -732,13 +735,34 @@
   flex-direction: column;
   gap: var(--space-6);
   will-change: transform;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonials-col-left {
+  animation: testimonialScrollDown 30s linear infinite;
+}
+
+.testimonials-col-right {
+  animation: testimonialScrollUp 30s linear infinite;
+}
+
+.testimonials-col-left:hover,
+.testimonials-col-right:hover {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialScrollDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes testimonialScrollUp {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
 .testimonials-col-center {
-  position: sticky;
-  top: 120px;
-  align-self: start;
+  display: flex;
+  align-items: stretch;
 }
 
 .testimonials-col-center .testimonial-p-card--featured {
@@ -746,6 +770,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
 }
 
 .testimonial-p-card {
@@ -824,7 +849,8 @@
 @media (max-width: 768px) {
   .testimonials-parallax {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
+    overflow: visible;
   }
   .testimonials-col-center {
     position: relative;
@@ -832,6 +858,7 @@
   }
   .testimonials-col {
     transform: none !important;
+    animation: none !important;
   }
   .testimonial-p-card {
     opacity: 1 !important;
