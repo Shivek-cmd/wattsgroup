@@ -65,12 +65,11 @@
 .hero-visual {
   position: absolute;
   top: 50%;
-  right: 2%;
-  transform: translateY(-50%);
-  width: 520px;
-  height: 520px;
+  right: -8%;
+  transform: translateY(-50%) rotate(15deg);
+  width: 640px;
+  height: 640px;
   z-index: 1;
-  pointer-events: none;
 }
 
 /* ─── Orbit Container ─── */
@@ -80,7 +79,7 @@
   height: 100%;
 }
 
-/* ─── Orbit Rings (static, dotted) ─── */
+/* ─── 3 Separate Orbit Rings (static, visible) ─── */
 .hero-orbit-ring {
   position: absolute;
   border-radius: 50%;
@@ -89,108 +88,137 @@
   transform: translate(-50%, -50%);
 }
 
-.hero-orbit-ring--outer {
-  width: 480px;
-  height: 480px;
-  border: 1px dashed rgba(218, 65, 80, 0.2);
+.hero-orbit-ring--1 {
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(218, 65, 80, 0.18);
 }
 
-.hero-orbit-ring--inner {
-  width: 280px;
-  height: 280px;
+.hero-orbit-ring--2 {
+  width: 420px;
+  height: 420px;
+  border: 1px dashed rgba(218, 65, 80, 0.15);
+}
+
+.hero-orbit-ring--3 {
+  width: 580px;
+  height: 580px;
   border: 1px solid rgba(218, 65, 80, 0.1);
 }
 
-/* ─── Center Logo ─── */
-.hero-orbit-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 96px;
-  height: 96px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 40px rgba(218, 65, 80, 0.12), 0 4px 20px rgba(0,0,0,0.06);
-  z-index: 3;
-}
-
-.hero-orbit-center img {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-}
-
-/* ─── Orbit Track (rotating container) ─── */
+/* ─── Orbit Tracks (each rotates independently) ─── */
 .hero-orbit-track {
   position: absolute;
-  width: 480px;
-  height: 480px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: orbitSpin 60s linear infinite;
+  border-radius: 50%;
 }
 
-@keyframes orbitSpin {
+.hero-orbit-track--1 {
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  animation: orbitSpin1 40s linear infinite;
+}
+
+.hero-orbit-track--2 {
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  animation: orbitSpin2 55s linear infinite;
+}
+
+.hero-orbit-track--3 {
+  width: 580px;
+  height: 580px;
+  transform: translate(-50%, -50%);
+  animation: orbitSpin3 70s linear infinite reverse;
+}
+
+@keyframes orbitSpin1 {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* ─── Orbit Items (3 pillars) ─── */
+@keyframes orbitSpin2 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitSpin3 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ─── Orbit Items (clickable pillars) ─── */
 .hero-orbit-item {
   position: absolute;
+  top: 0;
+  left: 50%;
   width: 100px;
   height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  /* Counter-rotate to keep labels upright */
-  animation: orbitCounterSpin 60s linear infinite;
+  text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-@keyframes orbitCounterSpin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+/* Counter-rotate each item to keep it upright (matches parent rotation) */
+.hero-orbit-track--1 .hero-orbit-item {
+  animation: orbitCounter1 40s linear infinite;
 }
 
-/* Position each item at 120° intervals on the orbit */
-.hero-orbit-item:nth-child(1) {
-  top: 0%;
-  left: 50%;
+.hero-orbit-track--2 .hero-orbit-item {
+  animation: orbitCounter2 55s linear infinite;
 }
 
-.hero-orbit-item:nth-child(2) {
-  top: 75%;
-  left: 93.3%;
+.hero-orbit-track--3 .hero-orbit-item {
+  animation: orbitCounter3 70s linear infinite reverse;
 }
 
-.hero-orbit-item:nth-child(3) {
-  top: 75%;
-  left: 6.7%;
+@keyframes orbitCounter1 {
+  0% { transform: rotate(0deg) rotate(-15deg); }
+  100% { transform: rotate(-360deg) rotate(-15deg); }
+}
+
+@keyframes orbitCounter2 {
+  0% { transform: rotate(0deg) rotate(-15deg); }
+  100% { transform: rotate(-360deg) rotate(-15deg); }
+}
+
+@keyframes orbitCounter3 {
+  0% { transform: rotate(0deg) rotate(-15deg); }
+  100% { transform: rotate(360deg) rotate(-15deg); }
 }
 
 .hero-orbit-icon {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   background: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 30px rgba(218, 65, 80, 0.06);
   border: 2px solid rgba(218, 65, 80, 0.15);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.hero-orbit-item:hover .hero-orbit-icon {
+  box-shadow: 0 4px 24px rgba(218, 65, 80, 0.25);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
 }
 
 .hero-orbit-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   stroke: var(--color-primary);
 }
 
@@ -208,10 +236,10 @@
 .hero-orbit-item::before {
   content: '';
   position: absolute;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(218, 65, 80, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(218, 65, 80, 0.1) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
@@ -220,16 +248,17 @@
 
 @media (max-width: 1024px) {
   .hero-visual {
-    width: 400px;
-    height: 400px;
-    right: -5%;
+    width: 480px;
+    height: 480px;
+    right: -12%;
   }
-  .hero-orbit-ring--outer { width: 360px; height: 360px; }
-  .hero-orbit-ring--inner { width: 200px; height: 200px; }
-  .hero-orbit-track { width: 360px; height: 360px; }
-  .hero-orbit-center { width: 72px; height: 72px; }
-  .hero-orbit-center img { width: 42px; height: 42px; }
-  .hero-orbit-icon { width: 42px; height: 42px; }
+  .hero-orbit-ring--1 { width: 200px; height: 200px; }
+  .hero-orbit-ring--2 { width: 320px; height: 320px; }
+  .hero-orbit-ring--3 { width: 440px; height: 440px; }
+  .hero-orbit-track--1 { width: 200px; height: 200px; }
+  .hero-orbit-track--2 { width: 320px; height: 320px; }
+  .hero-orbit-track--3 { width: 440px; height: 440px; }
+  .hero-orbit-icon { width: 44px; height: 44px; }
   .hero-orbit-icon svg { width: 18px; height: 18px; }
   .hero-orbit-label { font-size: 9px; }
 }
