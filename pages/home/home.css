@@ -357,6 +357,13 @@
   justify-content: center;
 }
 
+.founder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+
 .founder-image-placeholder {
   width: 100%;
   height: 100%;
@@ -437,6 +444,12 @@
   width: 40px;
   height: 40px;
   color: var(--color-text-subtle);
+}
+
+.blog-preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .blog-preview-body {

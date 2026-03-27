@@ -156,6 +156,12 @@ p {
   margin-top: var(--space-3);
 }
 
+.section-header.text-center p,
+.section-header.text-center .section-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-sub {
   margin-top: var(--space-4);
   font-size: var(--text-lg);
