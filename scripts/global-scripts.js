@@ -405,15 +405,8 @@
   var scrollTrack = document.getElementById("portfolioScrollTrack");
   if (scrollTrack) {
     var scrollSection = scrollTrack.closest(".portfolio-scroll-section");
-    var isMobile = window.innerWidth <= 768;
 
     function setupPortfolioPin() {
-      isMobile = window.innerWidth <= 768;
-      if (isMobile) {
-        scrollSection.style.height = "";
-        scrollTrack.style.transform = "";
-        return;
-      }
       var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
       /* Make section tall enough: viewport height + horizontal overflow */
       var sectionH = window.innerHeight + maxScroll;
@@ -421,7 +414,6 @@
     }
 
     function updatePortfolioScroll() {
-      if (isMobile) return;
       var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
       var rect = scrollSection.getBoundingClientRect();
       /* Progress: 0 at top of section, 1 when sticky container would unstick */
