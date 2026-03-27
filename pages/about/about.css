@@ -4,7 +4,7 @@
 
 /* ─── Page Hero (Inner) ─── */
 .page-hero {
-  padding: var(--space-20) 0 var(--space-12);
+  padding: calc(var(--space-20) + 72px) 0 var(--space-12);
   background: var(--color-bg);
 }
 

@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: var(--space-20) 0 var(--space-16);
+  padding: calc(var(--space-20) + 72px) 0 var(--space-16);
   background: var(--color-bg);
 }
 
@@ -298,10 +298,42 @@
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
-    padding: var(--space-16) 0 var(--space-12);
+    padding: calc(var(--space-16) + 72px) 0 var(--space-12);
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero .container {
+    display: flex;
+    flex-direction: column;
   }
   .hero-visual {
-    display: none;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: rotate(15deg);
+    width: 300px;
+    height: 300px;
+    margin: 0 auto var(--space-8);
+    order: -1;
+  }
+  .hero-orbit-ring--1 { width: 120px; height: 120px; }
+  .hero-orbit-ring--2 { width: 200px; height: 200px; }
+  .hero-orbit-ring--3 { width: 280px; height: 280px; }
+  .hero-orbit-track--1 { width: 120px; height: 120px; }
+  .hero-orbit-track--2 { width: 200px; height: 200px; }
+  .hero-orbit-track--3 { width: 280px; height: 280px; }
+  .hero-orbit-icon { width: 36px; height: 36px; }
+  .hero-orbit-icon svg { width: 16px; height: 16px; }
+  .hero-orbit-label { font-size: 8px; }
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-description {
+    max-width: 100%;
+  }
+  .hero-actions {
+    justify-content: center;
   }
   .hero h1 {
     font-size: clamp(2.25rem, 8vw, 3.5rem);
