@@ -336,25 +336,34 @@
   .pillars-image-area { aspect-ratio: 16/9; max-height: 320px; }
 }
 
-/* ═══ Portfolio Scroll-Driven Horizontal Cards ═══ */
+/* ═══ Portfolio Scroll-Driven Horizontal Cards (Pinned) ═══ */
 .portfolio-scroll-section {
+  position: relative;
+}
+
+.portfolio-scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
 }
 
 .portfolio-scroll-wrapper {
   overflow: hidden;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
 }
 
 .portfolio-scroll-track {
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-8);
   will-change: transform;
-  transition: transform 0.1s linear;
 }
 
 .portfolio-scroll-card {
-  flex: 0 0 340px;
+  flex: 0 0 420px;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -369,7 +378,7 @@
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  aspect-ratio: 4/3.5;
+  aspect-ratio: 4/3;
   background: var(--color-bg-secondary);
 }
 
@@ -413,7 +422,7 @@
 }
 
 .portfolio-scroll-card h3 {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 600;
   margin-top: var(--space-4);
   margin-bottom: var(--space-1);
@@ -428,7 +437,23 @@
 
 @media (max-width: 768px) {
   .portfolio-scroll-card {
-    flex: 0 0 280px;
+    flex: 0 0 320px;
+  }
+  .portfolio-scroll-sticky {
+    position: relative;
+    height: auto;
+  }
+  .portfolio-scroll-section {
+    height: auto !important;
+  }
+  .portfolio-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-4);
+  }
+  .portfolio-scroll-card {
+    scroll-snap-align: start;
   }
 }
 
@@ -675,4 +700,114 @@
   text-transform: uppercase;
   color: var(--color-text-subtle);
   margin-bottom: var(--space-6);
+}
+
+/* ═══ Testimonials 3-Column Parallax ═══ */
+.testimonials-parallax {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  overflow: hidden;
+  min-height: 560px;
+}
+
+.testimonials-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.testimonials-col-center {
+  position: sticky;
+  top: 160px;
+}
+
+.testimonial-p-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-p-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.testimonial-p-card--featured {
+  border-color: var(--color-primary);
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.testimonial-p-card--featured .testimonial-p-quote {
+  color: #fff;
+  font-size: var(--text-lg);
+}
+
+.testimonial-p-card--featured .testimonial-p-author strong {
+  color: #fff;
+}
+
+.testimonial-p-card--featured .testimonial-p-author span {
+  color: rgba(255,255,255,0.6);
+}
+
+.testimonial-p-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.testimonial-p-quote {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  font-style: italic;
+}
+
+.testimonial-p-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.testimonial-p-author img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.testimonial-p-author strong {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.testimonial-p-author span {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .testimonials-parallax {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .testimonials-col-center {
+    position: relative;
+    top: 0;
+  }
+  .testimonials-col {
+    transform: none !important;
+  }
 }

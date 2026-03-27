@@ -320,18 +320,19 @@
 }
 
 .related-card-body {
-  padding: var(--space-5);
+  padding: var(--space-6) var(--space-6) var(--space-8);
 }
 
 .related-card-meta {
   font-size: var(--text-xs);
   color: var(--color-text-subtle);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .related-card-body h3 {
   font-size: var(--text-base);
   line-height: 1.4;
+  margin-bottom: var(--space-2);
 }
 
 .related-card-body h3 a {
