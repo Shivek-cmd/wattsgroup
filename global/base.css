@@ -147,6 +147,53 @@ p {
   position: relative;
 }
 
+/* ─── Page Hero with Background Image ─── */
+.page-hero--bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--space-20) 0 var(--space-12);
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-hero--bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18,18,18,0.55) 0%, rgba(18,18,18,0.82) 100%);
+  z-index: 1;
+}
+
+.page-hero--bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero--bg h1,
+.page-hero--bg p,
+.page-hero--bg .breadcrumb,
+.page-hero--bg .breadcrumb a,
+.page-hero--bg .breadcrumb span {
+  color: #fff;
+}
+
+.page-hero--bg p {
+  color: rgba(255,255,255,0.8);
+}
+
+.page-hero--bg .breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .page-hero--bg {
+    min-height: 260px;
+  }
+}
+
 /* ─── Section Header ─── */
 .section-header {
   margin-bottom: var(--space-12);

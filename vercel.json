@@ -8,7 +8,14 @@
     { "source": "/blog", "destination": "/pages/blog/index.html" },
     { "source": "/contact", "destination": "/pages/contact/index.html" },
     { "source": "/privacy-policy", "destination": "/pages/privacy-policy/index.html" },
-    { "source": "/terms-of-service", "destination": "/pages/terms-of-service/index.html" }
+    { "source": "/terms-of-service", "destination": "/pages/terms-of-service/index.html" },
+    { "source": "/blog/ai-automation-small-business", "destination": "/pages/blog/ai-automation-small-business/index.html" },
+    { "source": "/blog/canada-dubai-real-estate", "destination": "/pages/blog/canada-dubai-real-estate/index.html" },
+    { "source": "/blog/study-abroad-guide-2025", "destination": "/pages/blog/study-abroad-guide-2025/index.html" },
+    { "source": "/blog/building-multi-vertical-conglomerate", "destination": "/pages/blog/building-multi-vertical-conglomerate/index.html" },
+    { "source": "/blog/ai-content-marketing-future", "destination": "/pages/blog/ai-content-marketing-future/index.html" },
+    { "source": "/blog/express-entry-guide", "destination": "/pages/blog/express-entry-guide/index.html" },
+    { "source": "/blog/community-driven-business", "destination": "/pages/blog/community-driven-business/index.html" }
   ],
   "headers": [
     {
