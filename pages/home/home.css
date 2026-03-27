@@ -128,7 +128,7 @@
   height: 360px;
   transform: translate(-50%, -50%);
   animation: orbitSpin 60s linear infinite reverse;
-  animation-delay: -20s;
+  animation-delay: -40s;
 }
 
 .hero-orbit-track--3 {
@@ -136,7 +136,7 @@
   height: 470px;
   transform: translate(-50%, -50%);
   animation: orbitSpin 60s linear infinite;
-  animation-delay: -40s;
+  animation-delay: -20s;
 }
 
 /* ─── Single Clean Animation ─── */
@@ -212,12 +212,12 @@
 
 .hero-orbit-track--2 .hero-orbit-item {
   animation: counterSpin 60s linear infinite reverse;
-  animation-delay: -20s;
+  animation-delay: -40s;
 }
 
 .hero-orbit-track--3 .hero-orbit-item {
   animation: counterSpin 60s linear infinite;
-  animation-delay: -40s;
+  animation-delay: -20s;
 }
 
 /* keyframe */
