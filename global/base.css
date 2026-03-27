@@ -181,7 +181,8 @@ p {
 }
 
 .page-hero--bg p {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.95);
+  font-weight: 400;
 }
 
 .page-hero--bg .breadcrumb a:hover {

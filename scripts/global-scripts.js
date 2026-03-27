@@ -343,4 +343,61 @@
       }
     });
   });
+
+  /* ─── Portfolio Scroll-Driven Horizontal Movement ─── */
+  var scrollTrack = document.getElementById("portfolioScrollTrack");
+  if (scrollTrack) {
+    var scrollSection = scrollTrack.closest(".portfolio-scroll-section");
+    var maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+
+    function updatePortfolioScroll() {
+      var rect = scrollSection.getBoundingClientRect();
+      var sectionHeight = scrollSection.offsetHeight;
+      var viewH = window.innerHeight;
+      /* Progress: 0 when section top hits viewport bottom, 1 when section bottom hits viewport top */
+      var progress = (viewH - rect.top) / (viewH + sectionHeight);
+      progress = Math.max(0, Math.min(1, progress));
+      var translateX = progress * maxScroll;
+      scrollTrack.style.transform = "translateX(-" + translateX + "px)";
+    }
+
+    window.addEventListener("scroll", updatePortfolioScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      maxScroll = scrollTrack.scrollWidth - scrollTrack.parentElement.clientWidth;
+      updatePortfolioScroll();
+    });
+    updatePortfolioScroll();
+  }
+
+  /* ─── TOC Active Heading Highlight (Blog Detail Pages) ─── */
+  var tocLinks = document.querySelectorAll(".toc a");
+  if (tocLinks.length > 0) {
+    var tocHeadings = [];
+    tocLinks.forEach(function (link) {
+      var id = link.getAttribute("href").replace("#", "");
+      var heading = document.getElementById(id);
+      if (heading) tocHeadings.push({ el: heading, link: link });
+    });
+
+    if (tocHeadings.length > 0) {
+      function updateActiveToc() {
+        var scrollPos = window.scrollY + 120;
+        var activeIndex = 0;
+
+        for (var i = 0; i < tocHeadings.length; i++) {
+          if (tocHeadings[i].el.offsetTop <= scrollPos) {
+            activeIndex = i;
+          }
+        }
+
+        tocLinks.forEach(function (link) {
+          link.classList.remove("active");
+        });
+        tocHeadings[activeIndex].link.classList.add("active");
+      }
+
+      window.addEventListener("scroll", updateActiveToc, { passive: true });
+      updateActiveToc();
+    }
+  }
 })();

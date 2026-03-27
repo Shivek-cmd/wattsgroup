@@ -269,59 +269,109 @@
       </div>
     </section>
 
-    <!-- ═══ Portfolio Highlights ═══ -->
-    <section class="section" aria-labelledby="portfolio-heading" style="background: var(--color-bg-secondary);">
+    <!-- ═══ Portfolio Highlights (Scroll-Driven Horizontal Cards) ═══ -->
+    <section class="section portfolio-scroll-section" aria-labelledby="portfolio-heading" style="background: var(--color-bg-secondary);">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-label">Our Portfolio</span>
-          <h2 id="portfolio-heading">Companies Shaping Tomorrow</h2>
+          <span class="section-label">Portfolio</span>
+          <h2 id="portfolio-heading">Explore Our Real Works</h2>
           <p>Eight ventures, six verticals, one unified vision — to build companies that matter.</p>
         </div>
-        <div class="portfolio-highlights-grid">
-          <div class="portfolio-highlight-card reveal delay-1">
-            <span class="badge">AI</span>
+      </div>
+      <div class="portfolio-scroll-wrapper">
+        <div class="portfolio-scroll-track" id="portfolioScrollTrack">
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=500&fit=crop&q=80" alt="Aifyze — AI Consulting & Automation" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">AI</span>
+                <span class="portfolio-scroll-card-date">Founded 2022</span>
+              </div>
+            </div>
             <h3>Aifyze</h3>
             <p>AI consulting and automation solutions transforming how businesses operate and compete.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-2">
-            <span class="badge">Education</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=500&fit=crop&q=80" alt="Abroadiz — Study Abroad Consultancy" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Education</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
+            </div>
             <h3>Abroadiz</h3>
             <p>Study abroad and immigration consultancy connecting students with global opportunities.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-3">
-            <span class="badge">Technology</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=500&fit=crop&q=80" alt="Applyio — Application Management Platform" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Technology</span>
+                <span class="portfolio-scroll-card-date">Founded 2023</span>
+              </div>
+            </div>
             <h3>Applyio</h3>
             <p>Streamlined application management platform for education and immigration processes.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-4">
-            <span class="badge">Entertainment</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=500&fit=crop&q=80" alt="Fun-A-Boo — Kids Entertainment" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Entertainment</span>
+                <span class="portfolio-scroll-card-date">Founded 2023</span>
+              </div>
+            </div>
             <h3>Fun-A-Boo</h3>
             <p>Kids activities and entertainment platform creating joyful experiences for families.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-5">
-            <span class="badge">Immigration</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=600&h=500&fit=crop&q=80" alt="Watts Immigration — Immigration Consulting" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Immigration</span>
+                <span class="portfolio-scroll-card-date">Founded 2020</span>
+              </div>
+            </div>
             <h3>Watts Immigration</h3>
             <p>Full-service immigration consulting and study abroad advisory for Canada and beyond.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-6">
-            <span class="badge">Technology</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=500&fit=crop&q=80" alt="Watts Technologies — AI Automation" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Technology</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
+            </div>
             <h3>Watts Technologies</h3>
             <p>AI automation and content marketing solutions for modern enterprises.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-7">
-            <span class="badge">Real Estate</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop&q=80" alt="Watts Realty — Premium Real Estate" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Real Estate</span>
+                <span class="portfolio-scroll-card-date">Founded 2021</span>
+              </div>
+            </div>
             <h3>Watts Realty</h3>
             <p>Premium real estate brokerage across Chandigarh Tricity and Dubai.</p>
-          </div>
-          <div class="portfolio-highlight-card reveal delay-8">
-            <span class="badge">Community</span>
+          </a>
+          <a href="/portfolio" class="portfolio-scroll-card">
+            <div class="portfolio-scroll-card-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop&q=80" alt="Watts Community — CSR & AI Education" loading="lazy">
+              <div class="portfolio-scroll-card-overlay">
+                <span class="portfolio-scroll-card-tag">Community</span>
+                <span class="portfolio-scroll-card-date">Founded 2022</span>
+              </div>
+            </div>
             <h3>Watts Community</h3>
             <p>CSR-driven AI education and student community building the next generation.</p>
-          </div>
+          </a>
         </div>
-        <div class="text-center" style="margin-top: var(--space-10);">
-          <a href="/portfolio" class="btn btn-outline">View Full Portfolio</a>
-        </div>
+      </div>
+      <div class="container text-center" style="margin-top: var(--space-10);">
+        <a href="/portfolio" class="btn btn-outline">View Full Portfolio</a>
       </div>
     </section>
 
