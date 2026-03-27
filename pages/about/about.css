@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════════════
+   WATTS GROUP — About Page Styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Page Hero (Inner) ─── */
+.page-hero {
+  padding: var(--space-20) 0 var(--space-12);
+  background: var(--color-bg);
+}
+
+.page-hero-content {
+  max-width: 640px;
+}
+
+.page-hero h1 {
+  font-size: var(--text-display);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+}
+
+.page-hero p {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Our Story ─── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.story-text h2 { margin-bottom: var(--space-4); }
+.story-text p { margin-bottom: var(--space-4); }
+.story-text p:last-of-type { margin-bottom: var(--space-6); }
+
+.story-image {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-image svg {
+  width: 80px;
+  height: 80px;
+  color: var(--color-text-subtle);
+}
+
+@media (max-width: 768px) {
+  .story-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+}
+
+/* ─── Vision & Mission ─── */
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.vm-card {
+  padding: var(--space-10);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background: var(--color-card-bg);
+}
+
+.vm-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.vm-card h3 svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.vm-card p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .vm-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Core Values ─── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.value-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.value-icon svg { width: 24px; height: 24px; }
+
+.value-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.value-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Leadership ─── */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.leader-card {
+  text-align: center;
+}
+
+.leader-photo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto var(--space-4);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leader-photo svg {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-subtle);
+}
+
+.leader-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.leader-card .leader-role {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.leader-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .leadership-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Milestones Timeline ─── */
+.timeline {
+  position: relative;
+  padding-left: var(--space-10);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-10);
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: calc(-1 * var(--space-10) + 8px);
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  border: 3px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-item h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-item p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
