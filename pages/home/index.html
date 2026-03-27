@@ -179,39 +179,46 @@
       </div>
     </section>
 
-    <!-- ═══ About Snapshot ═══ -->
+    <!-- ═══ Who We Are (Pattern 4: Stats + Image) ═══ -->
     <section class="section" aria-labelledby="about-heading">
       <div class="container">
-        <div class="about-snapshot reveal">
-          <div class="about-snapshot-text">
+        <div class="whoweare-layout reveal">
+          <div class="whoweare-left">
             <span class="section-label">Who We Are</span>
-            <h2 id="about-heading">A Conglomerate Built on<br>Purpose &amp; Innovation</h2>
-            <p>Watts Group Ltd is a Canadian multi-vertical conglomerate headquartered with a mission to build, invest in, and scale ventures that create real-world impact. From AI-powered automation to real estate development, we operate at the intersection of technology and human potential.</p>
+            <h2 id="about-heading">A Conglomerate Built on Purpose &amp; Innovation</h2>
+            <p>Watts Group Ltd is a Canadian multi-vertical conglomerate with a mission to build, invest in, and scale ventures that create real-world impact.</p>
             <a href="/about" class="btn btn-outline">Learn Our Story</a>
+            <div class="whoweare-image">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop&q=80" alt="Watts Group modern office space" loading="lazy">
+            </div>
           </div>
-          <div class="about-metrics">
-            <div class="about-metric reveal delay-1">
-              <span class="counter" data-target="8" data-suffix="+">0</span>
-              <span>Portfolio Companies</span>
+          <div class="whoweare-stats">
+            <div class="stat-box reveal delay-1">
+              <span class="stat-number counter" data-target="2020">0</span>
+              <strong>ESTABLISHMENT</strong>
+              <span class="stat-desc">Building from Canada, for the world</span>
             </div>
-            <div class="about-metric reveal delay-2">
-              <span class="counter" data-target="6" data-suffix="+">0</span>
-              <span>Industry Verticals</span>
+            <div class="stat-box reveal delay-2">
+              <span class="stat-number counter" data-target="8" data-suffix="+">0</span>
+              <strong>PORTFOLIO COMPANIES</strong>
+              <span class="stat-desc">Ventures across six verticals</span>
             </div>
-            <div class="about-metric reveal delay-3">
-              <span class="counter" data-target="3">0</span>
-              <span>Countries Active</span>
+            <div class="stat-box reveal delay-3">
+              <span class="stat-number counter" data-target="50" data-suffix="+">0</span>
+              <strong>TEAM MEMBERS</strong>
+              <span class="stat-desc">Operators, builders, and strategists</span>
             </div>
-            <div class="about-metric reveal delay-4">
-              <span class="counter" data-target="2020">0</span>
-              <span>Founded</span>
+            <div class="stat-box reveal delay-4">
+              <span class="stat-number counter" data-target="3">0</span>
+              <strong>COUNTRIES ACTIVE</strong>
+              <span class="stat-desc">Canada, India, and the UAE</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Three Pillars ═══ -->
+    <!-- ═══ Three Pillars (Pattern 1: Tabbed Feature + Image Switcher) ═══ -->
     <section class="section" aria-labelledby="pillars-heading">
       <div class="container">
         <div class="section-header text-center reveal">
@@ -219,27 +226,44 @@
           <h2 id="pillars-heading">Three Pillars of Growth</h2>
           <p>Everything we do falls under three strategic pillars — each designed to create compounding value across our ecosystem.</p>
         </div>
-        <div class="pillars-grid">
-          <div class="pillar-card reveal delay-1">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
-            </div>
-            <h3>Invest</h3>
-            <p>We identify high-potential ventures across AI, real estate, and technology — providing strategic capital and operational support to accelerate growth.</p>
+        <div class="pillars-tabbed reveal">
+          <div class="pillars-tabs">
+            <button class="pillar-tab active" data-pillar="invest" aria-selected="true">
+              <div class="pillar-tab-indicator"></div>
+              <div class="pillar-tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+              </div>
+              <div class="pillar-tab-content">
+                <h3>Invest</h3>
+                <p>We identify high-potential ventures across AI, real estate, and technology — providing strategic capital and operational support to accelerate growth.</p>
+              </div>
+            </button>
+            <button class="pillar-tab" data-pillar="build" aria-selected="false">
+              <div class="pillar-tab-indicator"></div>
+              <div class="pillar-tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+              </div>
+              <div class="pillar-tab-content">
+                <h3>Build</h3>
+                <p>From concept to scale, we build companies from the ground up — combining deep industry expertise with cutting-edge technology to create market leaders.</p>
+              </div>
+            </button>
+            <button class="pillar-tab" data-pillar="scale" aria-selected="false">
+              <div class="pillar-tab-indicator"></div>
+              <div class="pillar-tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="pillar-tab-content">
+                <h3>Scale</h3>
+                <p>We don't just start ventures — we scale them. Through our consulting arm and shared services model, portfolio companies gain unfair advantages.</p>
+              </div>
+            </button>
           </div>
-          <div class="pillar-card reveal delay-2">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-            </div>
-            <h3>Build</h3>
-            <p>From concept to scale, we build companies from the ground up — combining deep industry expertise with cutting-edge technology to create market leaders.</p>
-          </div>
-          <div class="pillar-card reveal delay-3">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3>Scale</h3>
-            <p>We don't just start ventures — we scale them. Through our consulting arm and shared services model, portfolio companies gain unfair advantages.</p>
+          <div class="pillars-image-area">
+            <img class="pillar-img active" data-pillar="invest" src="https://images.unsplash.com/photo-1553729459-uj1ef3f28b-r?w=700&h=500&fit=crop&q=80" alt="Strategic investment and capital allocation" loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=500&fit=crop&q=80'">
+            <img class="pillar-img" data-pillar="build" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&h=500&fit=crop&q=80" alt="Building companies from concept to scale" loading="lazy">
+            <img class="pillar-img" data-pillar="scale" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&h=500&fit=crop&q=80" alt="Scaling ventures with shared services" loading="lazy">
           </div>
         </div>
       </div>
@@ -336,7 +360,7 @@
         </div>
         <div class="founder-section reveal">
           <div class="founder-image">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&crop=face" alt="Ritesh Watts — Founder and CEO of Watts Group" loading="lazy">
+            <img src="/assets/images/ritesh-watts.jpg" alt="Ritesh Watts — Founder and CEO of Watts Group" loading="lazy">
           </div>
           <div class="founder-content">
             <blockquote>"We didn't build Watts Group to be just another holding company. We built it to prove that purpose-driven innovation — rooted in community, powered by AI, and scaled with discipline — can create a new kind of conglomerate. One that builds from Canada, for the world."</blockquote>
@@ -347,7 +371,7 @@
       </div>
     </section>
 
-    <!-- ═══ Blog Preview ═══ -->
+    <!-- ═══ Blog Preview (Pattern 2: Image Cards with Hover Blur) ═══ -->
     <section class="section" aria-labelledby="blog-heading" style="background: var(--color-bg-secondary);">
       <div class="container">
         <div class="section-header text-center reveal">
@@ -355,45 +379,60 @@
           <h2 id="blog-heading">Latest from Our Blog</h2>
           <p>Perspectives on AI, business strategy, and the future of work from the Watts Group team.</p>
         </div>
-        <div class="blog-preview-grid">
-          <article class="blog-preview-card reveal delay-1">
-            <div class="blog-preview-image">
-              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=340&fit=crop" alt="AI automation transforming small business operations" loading="lazy">
-            </div>
-            <div class="blog-preview-body">
-              <div class="blog-preview-meta">
-                <span>AI &amp; Technology</span>
-                <span>Jan 2025</span>
+        <div class="blog-cards-grid blur-hover-group">
+          <article class="blog-card-v2 reveal delay-1">
+            <a href="/blog/ai-automation-small-business" class="blog-card-v2-link">
+              <div class="blog-card-v2-image">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=440&fit=crop" alt="AI automation transforming small business operations" loading="lazy">
+                <span class="blog-card-v2-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </span>
               </div>
-              <h3><a href="/blog/ai-automation-small-business">How AI Automation Is Reshaping Small Business Operations in 2025</a></h3>
-              <p>From chatbots to full-stack automation, discover how Canadian SMBs are leveraging AI to compete with enterprise-level efficiency.</p>
-            </div>
+              <div class="blog-card-v2-body">
+                <h3>How AI Automation Is Reshaping Small Business Operations in 2025</h3>
+                <div class="blog-card-v2-meta">
+                  <span class="blog-card-v2-tag">AI &amp; Technology</span>
+                  <span>Ritesh Watts</span>
+                  <span>Jan 15, 2025</span>
+                </div>
+              </div>
+            </a>
           </article>
-          <article class="blog-preview-card reveal delay-2">
-            <div class="blog-preview-image">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=340&fit=crop" alt="Canada and Dubai real estate skyline" loading="lazy">
-            </div>
-            <div class="blog-preview-body">
-              <div class="blog-preview-meta">
-                <span>Real Estate</span>
-                <span>Dec 2024</span>
+          <article class="blog-card-v2 reveal delay-2">
+            <a href="/blog/canada-dubai-real-estate" class="blog-card-v2-link">
+              <div class="blog-card-v2-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=440&fit=crop" alt="Canada and Dubai real estate skyline" loading="lazy">
+                <span class="blog-card-v2-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </span>
               </div>
-              <h3><a href="/blog/canada-dubai-real-estate">The Canada-Dubai Real Estate Connection: Cross-Border Investment Trends</a></h3>
-              <p>Why savvy investors are looking at Chandigarh Tricity and Dubai as complementary markets for portfolio diversification.</p>
-            </div>
+              <div class="blog-card-v2-body">
+                <h3>The Canada-Dubai Real Estate Connection: Cross-Border Investment Trends</h3>
+                <div class="blog-card-v2-meta">
+                  <span class="blog-card-v2-tag">Real Estate</span>
+                  <span>Ritesh Watts</span>
+                  <span>Jan 10, 2025</span>
+                </div>
+              </div>
+            </a>
           </article>
-          <article class="blog-preview-card reveal delay-3">
-            <div class="blog-preview-image">
-              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=340&fit=crop" alt="International students studying abroad at Canadian university" loading="lazy">
-            </div>
-            <div class="blog-preview-body">
-              <div class="blog-preview-meta">
-                <span>Immigration</span>
-                <span>Nov 2024</span>
+          <article class="blog-card-v2 reveal delay-3">
+            <a href="/blog/study-abroad-guide-2025" class="blog-card-v2-link">
+              <div class="blog-card-v2-image">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=440&fit=crop" alt="International students studying abroad at Canadian university" loading="lazy">
+                <span class="blog-card-v2-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </span>
               </div>
-              <h3><a href="/blog/study-abroad-guide-2025">The Ultimate Study Abroad Guide for Canadian Universities in 2025</a></h3>
-              <p>Everything international students need to know about applications, scholarships, and visa processes for studying in Canada.</p>
-            </div>
+              <div class="blog-card-v2-body">
+                <h3>The Ultimate Study Abroad Guide for Canadian Universities in 2025</h3>
+                <div class="blog-card-v2-meta">
+                  <span class="blog-card-v2-tag">Education</span>
+                  <span>Ritesh Watts</span>
+                  <span>Jan 8, 2025</span>
+                </div>
+              </div>
+            </a>
           </article>
         </div>
         <div class="text-center" style="margin-top: var(--space-10);">
