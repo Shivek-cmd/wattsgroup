@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
+  align-items: start;
 }
 
 @media (max-width: 768px) {
@@ -46,7 +47,7 @@
 .contact-info-items {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-8);
   margin-bottom: var(--space-8);
 }
 
@@ -85,6 +86,19 @@
 .contact-info-item a:hover { color: var(--color-primary); }
 
 /* Social Links */
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.contact-social {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+}
+
 .contact-social h3 {
   font-size: var(--text-base);
   margin-bottom: var(--space-3);
@@ -113,6 +127,58 @@
   transform: translateY(-2px);
 }
 
+.contact-form-wrapper {
+  padding: var(--space-12);
+}
+
+.contact-form-wrapper form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact-form-wrapper .form-row {
+  gap: var(--space-5);
+}
+
+.contact-form-wrapper .form-group:not(:last-child) {
+  margin-bottom: var(--space-5);
+}
+
+.contact-info {
+  padding: var(--space-10);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.contact-info-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-info-item h3 {
+  margin-bottom: var(--space-1);
+}
+
+.contact-info-item p,
+.contact-info-item a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
 /* Map Placeholder */
 .contact-map {
   border-radius: var(--radius-xl);
@@ -127,8 +193,11 @@
   gap: var(--space-2);
 }
 
-.contact-map svg { width: 48px; height: 48px; color: var(--color-text-subtle); }
-.contact-map p { font-size: var(--text-sm); color: var(--color-text-subtle); }
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
 /* FAQ Section */
 .contact-faq { max-width: 720px; margin: 0 auto; }

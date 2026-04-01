@@ -163,7 +163,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18,18,18,0.72) 0%, rgba(18,18,18,0.88) 100%);
+  background: linear-gradient(180deg, rgba(18,18,18,0.72) 0%, rgba(18,18,18,0.92) 100%);
   z-index: 1;
 }
 
@@ -172,17 +172,20 @@ p {
   z-index: 2;
 }
 
-.page-hero--bg h1,
-.page-hero--bg p,
-.page-hero--bg .breadcrumb,
-.page-hero--bg .breadcrumb a,
-.page-hero--bg .breadcrumb span {
-  color: #fff;
+.page-hero.page-hero--bg h1,
+.page-hero.page-hero--bg p,
+.page-hero.page-hero--bg .breadcrumb,
+.page-hero.page-hero--bg .breadcrumb a,
+.page-hero.page-hero--bg .breadcrumb span {
+  color: rgba(235, 242, 247, 0.92);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.page-hero--bg p {
-  color: #fff;
+.page-hero.page-hero--bg p {
+  color: rgba(235, 242, 247, 0.7);
   font-weight: 400;
+  opacity: 1;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
 .page-hero--bg .breadcrumb a:hover {
@@ -563,8 +566,7 @@ body.page-grid::after {
 .marquee-wrapper {
   overflow: hidden;
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .marquee-wrapper::before,
